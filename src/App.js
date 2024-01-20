@@ -56,11 +56,12 @@ export default function Board() {
     </>
   );
 }
-function calculateWinner(squares) {
+function calculateWinner(squares) {//Calcula el ganador, tiene el parámetro square 
+  //que trae consigo la posición del square y el estado
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
-    [6, 7, 8],
+    [6, 7, 8],//líneas ganadoras
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
@@ -68,7 +69,7 @@ function calculateWinner(squares) {
     [2, 4, 6],
   ];
   for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+    const [a, b, c] = lines[i];//a,b,c representa los índices de los cuadros en el array square [0],[1],[2],...
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
