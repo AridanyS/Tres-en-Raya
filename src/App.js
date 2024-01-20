@@ -13,8 +13,8 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null)); //Crea Array de longitud 9 donde cada elemento inicial es null
 
   function handleClick(i) {
-    if (squares[i]) {
-      return;
+    if (squares[i]) {//Primero, se verifica si el cuadro en la posición i del array squares ya tiene un valor asignado que no sea null.
+      return;//Si ya tiene un valor seleccionado no se puede volver a seleccionar y la función se detiene y retorna
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
@@ -23,7 +23,8 @@ export default function Board() {
       nextSquares[i] = 'O';
     }
     setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    setXIsNext(!xIsNext);//Si el primer click ahora el square contiene una "X", al seleccionar otro square
+    //setXisNext pasa a ser false así que el segundo square pasa a ser "O".
   }
 
   return (
